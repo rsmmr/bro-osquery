@@ -7,24 +7,24 @@
 The most recent development is located in the [osquery fork by iBigQ](https://github.com/iBigQ/osquery).
 
 ```
-git clone --recursive https://github.com/iBigQ/osquery -b bro_integration_actor
+git clone --recursive https://github.com/iBigQ/osquery -b osquery-bro-actor
 cd osquery
 make deps
-make && sudo make install
+./tools/provision.sh install osquery/osquery-local/caf
+./tools/provision.sh install osquery/osquery-local/broker
+SKIP_BRO=False make && sudo make install
 ```
 
-Compared to osquery's upstream "bro-integration" branch, the version
-in this branch includes (1) updating to osquery version 2.11.2
-(submitted as [PR
-#4093](https://github.com/facebook/osquery/pull/4093); (2) switch to
-the new Broker API; and (3) switch to CAF 0.15.5.
+Compared to osquery's upstream `bro-integration` branch, the version
+in this branch includes switch to the new Broker API
+and switch to CAF 0.15.5.
 
 ## 2. Bro
 
 ### CAF Dependency
 
 ```
-git clone --recursive https://github.com/actor-framework/actor-framework 0.15.5
+git clone --recursive https://github.com/actor-framework/actor-framework -b 0.15.5
 cd actor-framework
 ./configure && make && sudo make install
 ```
