@@ -1,0 +1,22 @@
+#! /usr/bin/env bash
+
+osquery_version=$(/opt/osquery/bin/osqueryd -version 2>&1 | cut -d ' ' -f 3)
+
+# Prefix with zero so that an actual's release "${version}-1" name will be newer.
+release=0.$(TZ=UTC date +%Y%m%d%H%S%S)
+
+mkdir -p /tmp/osquery
+
+fpm --verbose -s dir \
+    -t rpm \
+    -n bro-osquery \
+    -v ${osquery_version} \
+    --iteration ${release} \
+    --exclude */.empty \
+    --license "BSD" \
+    --vendor "Corelight, Inc." \
+    --maintainer "<info@corelight.com>" \
+    --description "Bro/osquery Sensor" \
+    --before-remove before-remove.sh \
+    --after-install after-install.sh \
+    /opt/osquery /etc/rc.d/init.d/osqueryd /var/osquery /var/log/osquery

@@ -1,0 +1,23 @@
+{
+  "options": {
+    # Edit IP address.
+    "bro_ip": "X.X.X.X",
+    "bro_port": "9999",
+    "bro_groups": {},
+
+    # "verbose": "true",
+    "logger_path": "/var/log/osquery",
+
+    "disable_distributed": "false",
+    "distributed_interval": 1,
+    "distributed_plugin": "bro",
+    "logger_plugin": "bro",
+
+    "log_result_events": 0,
+
+    # Enable audit interface. Only works if auditd is not running.
+    "disable_events": 0,
+    "audit_allow_config": 1,
+    "disable_audit": 0
+    }
+}
