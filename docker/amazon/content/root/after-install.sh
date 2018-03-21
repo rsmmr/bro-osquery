@@ -1,3 +1,8 @@
 #! /usr/bin/env bash
 
-/etc/init.d/osqueryd start
+# Cannot run auditd in parallel, turn it off.
+test -e /etc/init.d/auditd && service auditd status >/dev/null && service auditd stop && chkconfig auditd off
+
+chkconfig osqueryd on
+service osqueryd start
+

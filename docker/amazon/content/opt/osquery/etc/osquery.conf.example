@@ -16,8 +16,9 @@
     "log_result_events": 0,
 
     # Enable audit interface. Only works if auditd is not running.
+    "disable_audit": 0,
     "disable_events": 0,
     "audit_allow_config": 1,
-    "disable_audit": 0
+    "audit_allow_sockets": 1
     }
 }

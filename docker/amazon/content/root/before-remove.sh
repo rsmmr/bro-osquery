@@ -1,3 +1,3 @@
 #! /usr/bin/env bash
 
-/etc/init.d/osqueryd stop
+test -e /etc/init.d/osqueryd && service osqueryd status >/dev/null && chkconfig osqueryd off && service osqueryd stop
