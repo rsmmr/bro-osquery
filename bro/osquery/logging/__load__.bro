@@ -1,2 +1,5 @@
 @load ./tables/mounts
-@load ./tables/processes
+@load ./tables/process-events
+@load ./tables/user-events
+@load ./tables/socket-events
+@load ./tables/file-events
