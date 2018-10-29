@@ -21,7 +21,7 @@ USER osquery
 ENV HOME /home/osquery
 
 WORKDIR /home/osquery
-RUN git clone --recursive https://github.com/iBigQ/osquery -b osquery-bro-actor
+RUN git clone --recursive https://github.com/iBigQ/osquery
 
 WORKDIR /home/osquery/osquery
 RUN make deps
